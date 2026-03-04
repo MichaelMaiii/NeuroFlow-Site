@@ -238,23 +238,18 @@
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Motivation</h2>
-        <div class="is-vcentered">
-          <video
-            src="./static/videos/motivations.mp4"
-            autoplay
-            loop
-            muted
-            playsinline
-            style="max-width: 100%; border-radius: 6px;">
-          </video>
+        <div class="is-vcentered has-text-centered">
+          <img src="./static/images/motivation.png"
+               alt="Cross-modal alignment pipelines"
+               style="max-width: 90%; margin: 0 auto;">
         </div>
         <div class="content has-text-justified">
           <p>
-            <strong>Motivation Illustration: </strong>VLA and VA policies are powerful but rely on costly large-scale training.
-            Theoretically, we show that combining distributional scores of pre-trained policies can yield a single-step error drop that propagates stably along the overall trajectory, 
-            enabling General Policy Composition (GPC) --- a <strong><em>training-free</em></strong> method to boost policy performance via <strong><em>convex combination</em></strong>.
-            GPC is versatile, allowing for the <strong><em>plug-and-play</em></strong> composition of heterogeneous policies, including VA and VLA models, as well as those based on diffusion or flow-matching, irrespective
-            of their input visual modalities. 
+            <strong>Motivation Illustration: </strong>A central challenge in visual encoding or decoding lies in cross-modal alignment that aims to establish a precise mapping between neural and visual distributions. 
+            Early methods relied on simple linear regressions to approximate the unidirectional relationship, which limited their ability to capture complex semantic correspondences. 
+            Recent approaches introduced nonlinear mappings using Diffusion Transformer (DiT) or Diffusion Prior (DP) under generative objectives, operating by conditioning Gaussian noise on one modality (e.g., neural or visual latent distribution) and iteratively guiding it toward the target distribution. 
+            However, such conditional noise-to-data pipelines still treat encoding and decoding as separate processes. 
+            In contrast, our proposed XFM establishes continuous and reversible flows directly between the neural and visual distributions, achieving a unified framework for encoding and decoding.
           </p>
         </div>
     </div>
@@ -271,87 +266,26 @@
       <div class="column is-full-width">
 
         <!-- Main title -->
-        <h2 class="title is-3">Mathematical Foundation</h2>
-
-        <!-- ----------- Sub-section 1 ----------- -->
-        <h3 class="title is-4">Overview</h3>
-        <div class="is-vcentered has-text-centered">
-          <img src="./static/images/math_overview_svg.png"
-               alt="Overview of GPC"
-               style="max-width: 110%; margin: 0 auto;">
-        </div>
-        <p class="content has-text-justified">
-          cOverview of Mathematics Foundation: </strong> We provide a high-level description of the math foundation of General Policy Composition framework,
-          outlining how function-level (single step improvement) and system-level (overall trajectory improvement) analyses together motivate our approach.
-        </p>
-        <!-- ----------- Sub-section 2 ----------- -->
-        <h3 class="title is-4">Proposition 1: Function-level Single-step Improvement</h3>
-        <div class="is-vcentered has-text-centered">
-          <img src="./static/images/math_prop1.png"
-               alt="Function-level Proposition 1"
-               style="max-width: 70%; margin: 0 auto;">
-        </div>
-        <p class="content has-text-justified">
-          <strong>Proposition 1</strong> establishes that a proper <em>convex combination of distributional scores</em>
-          can yield a smaller single-step error than either individual score estimator.
-        </p>
-        <!-- ----------- Sub-section 3 ----------- -->
-        <h3 class="title is-4">Proposition 2: System-level Stability</h3>
-        <div class="is-vcentered has-text-centered">
-          <img src="./static/images/math_prop2.png"
-               alt="System-level Proposition 2 and Corollary"
-               style="max-width: 70%; margin: 0 auto;">
-        </div>
-        <p class="content has-text-justified">
-          <strong>Proposition 2</strong> leverages a Grönwall-type inequality to show that
-          the terminal error grows at most exponentially with the Lipschitz constants, and is directly bounded by the integrated score error.
-        </p>
-
-        <h3 class="title is-4">Corollary: Tighter Terminal-state Bound</h3>
-        <div class="is-vcentered has-text-centered">
-          <img src="./static/images/math_coro1.png"
-               alt="Corollary Figure"
-               style="max-width: 70%; margin: 0 auto;">
-        </div>
-        <p class="content has-text-justified">
-          <strong>Corollary 1.</strong> Once functional-level improvement is established by obtaining an optimal weight (Prop. 4.1), 
-          stability ensures this advantage propagates along the trajectory (Prop. 4.2), 
-          making convex score composition provably <em>superior</em> to relying on individual scores.
-        </p>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-<!-- Method. -->
-<section class="section">  
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-full-width">
         <h2 class="title is-3">Method</h2>
 
-        <!-- Overview. -->
-        <h3 class="title is-4">Overview</h3>
-        <div class="is-vcentered">
-          <img src="./static/images/pipeline.png"
-                alt="Overview of TactAR and RDP"
-                style="max-width: 99%; margin: 0 auto;">
+        <div class="is-vcentered has-text-centered">
+          <img src="./static/images/framework.png"
+               alt="Overview of NeuroFlow"
+               style="max-width: 110%; margin: 0 auto;">
         </div>
         <div class="content has-text-justified">
           <p>
-            <strong>Overview of our proposed General Policy Composition.</strong> Combining distributional scores from pre-trained diffusion-based or flow-based policies on different conditions (e.g., visual modalities and network backbones), 
-            GPC can generate expressive and adaptable action trajectories through convex score combination <em>without additional training.</em>
+            <strong>Overview of NeuroFlow.</strong> 
+            <strong>Stage-1 (A):</strong> NeuroVAE introduces probabilistic learning to model neural variability and constrains the latent space with visual semantics for consistent image-to-fMRI synthesis. 
+            <strong>Stage-2 (B):</strong> XFM unifies encoding and decoding processes by learning a time-dependent, reversible flow between empirical visual and neural latent distributions. 
+            <strong>Stage-3 (C):</strong> Encoding and decoding are performed within a single model at inference, where reversing the temporal direction naturally transitions between the two processes.
           </p>
-        </div>
-        <!--/ Overview. -->
+
       </div>
     </div>
-    <!--/ Method. -->
   </div>
 </section>
+
 
 <!-- Experiments. -->
 <section class="section">  
