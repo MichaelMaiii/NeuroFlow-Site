@@ -281,7 +281,60 @@
             <strong>Overview of NeuroFlow.</strong> 
             <strong>Stage-1 (A):</strong> NeuroVAE introduces probabilistic learning to model neural variability and constrains the latent space with visual semantics for consistent image-to-fMRI synthesis. 
             <strong>Stage-2 (B):</strong> XFM unifies encoding and decoding processes by learning a time-dependent, reversible flow between empirical visual and neural latent distributions. 
-            <strong>Stage-3 (C):</strong> Encoding and decoding are performed within a single model at inference, where reversing the temporal direction naturally transitions between the two processes.
+            <strong>:</strong> Encoding and decoding are performed within a single model at inference, where reversing the temporal direction naturally transitions between the two processes.
+          </p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+
+        <!-- Main title -->
+        <h2 class="title is-3">Results</h2>
+
+        <div class="is-vcentered has-text-centered">
+          <img src="./static/images/result.png"
+               alt="Overview of NeuroFlow"
+               style="max-width: 100%; margin: 0 auto;">
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            <strong>Qualitative visual encoding and decoding performance comparisons.</strong> 
+            <strong>Left:</strong> NeuroFlow achieves superior decoding quality in semantic fidelity and visual structure.
+            <strong>Right:</strong> NeuroFlow suppresses irrelevant cortical activity while enhancing category-specific regions, capturing consistent activation patterns underlying neural variability to support image synthesis consistent with visual stimuli. 
+          </p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+
+        <!-- Main title -->
+        <h2 class="title is-3">Analysis</h2>
+
+        <div class="is-vcentered has-text-centered">
+          <img src="./static/images/analysis.png"
+               alt="Overview of NeuroFlow"
+               style="max-width: 100%; margin: 0 auto;">
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            <strong>Empirical visualizations.</strong> 
+            <strong>(A) Ablation study:</strong> removing key objectives leads to degraded visual fidelity and semantic coherence.
+            <strong>(B) Flow trajectory:</strong> Encoding trajectory reveals a suppression of early visual responses and a transition toward functional regions (i.e., FFA and EBA). 
+            Decoding trajectory evolves from an initial structural sketch, not Gaussian noises, to a realistic and high-fidelity image.
+            <strong>(C-D) Brain functional analysis:</strong> category-selective fMRI activations and voxel-wise evaluation derived from raw and synthetic fMRI, computed on the whole test set, 
+            showing that NeuroFlow suppresses early visual activity and emphasizes higher-order functional regions.
           </p>
 
       </div>
